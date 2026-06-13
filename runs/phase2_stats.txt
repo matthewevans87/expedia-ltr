@@ -1,0 +1,46 @@
+Rows: 500,000
+Unique Groups (srch_id): 20,058
+Group size distribution:
+count    20058.00000
+mean        24.92771
+std          9.08663
+min          5.00000
+25%         18.00000
+50%         30.00000
+75%         32.00000
+max         37.00000
+dtype: float64
+Label base rates:
+click_bool      0.044828
+booking_bool    0.027810
+dtype: float64
+Click/Booking rate by position (top 10):
+          click_bool  booking_bool
+position                          
+1           0.191066      0.138503
+2           0.134842      0.093475
+3           0.102617      0.070209
+4           0.088160      0.057296
+5           0.018987      0.008439
+6           0.072707      0.046505
+7           0.061928      0.038967
+8           0.052199      0.031414
+9           0.046238      0.026590
+10          0.044979      0.025448
+Missingness (top 15 columns by % missing):
+comp1_rate_percent_diff      0.981470
+comp6_rate_percent_diff      0.979804
+comp1_rate                   0.976690
+comp1_inv                    0.974786
+comp4_rate_percent_diff      0.973318
+gross_bookings_usd           0.972190
+comp7_rate_percent_diff      0.970540
+comp6_rate                   0.949476
+visitor_hist_starrating      0.948498
+visitor_hist_adr_usd         0.948202
+comp6_inv                    0.944988
+comp4_rate                   0.937552
+srch_query_affinity_score    0.934882
+comp7_rate                   0.933944
+comp4_inv                    0.930430
+dtype: float64

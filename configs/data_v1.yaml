@@ -1,0 +1,33 @@
+data:
+  raw_path: "data/raw/train.csv"
+  group_col: "srch_id"
+  item_col: "prop_id"
+  position_col: "position"
+  label_cols:
+    - "click_bool"
+    - "booking_bool"
+  feature_cols:
+    query_level:
+      - "site_id"
+      - "visitor_location_country_id"
+      - "srch_length_of_stay"
+      - "srch_booking_window"
+      - "srch_adults_count"
+      - "srch_children_count"
+      - "srch_room_count"
+    item_level:
+      - "prop_country_id"
+      - "prop_starrating"
+      - "prop_review_score"
+      - "prop_brand_bool"
+      - "prop_location_score1"
+      - "prop_location_score2"
+      - "prop_log_historical_price"
+    interaction_level:
+      - "price_usd"
+      - "promotion_flag"
+split:
+  val_frac: 0.1
+  test_frac: 0.1
+  seed: 42
+output_dir: "data/processed/v1"
