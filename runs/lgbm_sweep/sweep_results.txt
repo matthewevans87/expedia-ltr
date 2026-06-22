@@ -1,0 +1,20 @@
+Sweep results (sorted by NDGC@5):
+                                    run  num_leaves  learning_rate  seed   ndcg@5  ndcg@10      mrr
+   num_leaves31_learning_rate0.05_seed7          31           0.05     7 0.379221 0.444119 0.375129
+ num_leaves63_learning_rate0.05_seed123          63           0.05   123 0.377862 0.443809 0.373566
+   num_leaves63_learning_rate0.05_seed7          63           0.05     7 0.377351 0.441623 0.371747
+ num_leaves31_learning_rate0.05_seed123          31           0.05   123 0.376432 0.440999 0.371375
+  num_leaves31_learning_rate0.05_seed42          31           0.05    42 0.376319 0.442058 0.373250
+ num_leaves127_learning_rate0.05_seed42         127           0.05    42 0.374974 0.438851 0.368004
+  num_leaves63_learning_rate0.05_seed42          63           0.05    42 0.374825 0.440361 0.369386
+ num_leaves63_learning_rate0.02_seed123          63           0.02   123 0.374728 0.440502 0.370816
+  num_leaves127_learning_rate0.02_seed7         127           0.02     7 0.374363 0.438116 0.369293
+  num_leaves31_learning_rate0.02_seed42          31           0.02    42 0.373948 0.438410 0.369625
+ num_leaves127_learning_rate0.02_seed42         127           0.02    42 0.373466 0.438925 0.368915
+num_leaves127_learning_rate0.05_seed123         127           0.05   123 0.372218 0.440872 0.371260
+num_leaves127_learning_rate0.02_seed123         127           0.02   123 0.371989 0.439829 0.369513
+  num_leaves127_learning_rate0.05_seed7         127           0.05     7 0.371880 0.437501 0.367744
+ num_leaves31_learning_rate0.02_seed123          31           0.02   123 0.369519 0.433923 0.364446
+   num_leaves31_learning_rate0.02_seed7          31           0.02     7 0.369402 0.434238 0.367070
+   num_leaves63_learning_rate0.02_seed7          63           0.02     7 0.368974 0.433363 0.363760
+  num_leaves63_learning_rate0.02_seed42          63           0.02    42 0.367773 0.433803 0.364214

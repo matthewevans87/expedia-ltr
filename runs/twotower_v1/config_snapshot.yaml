@@ -1,0 +1,51 @@
+data: 
+  processed_dir: "data/processed/v1"
+  group_col: "srch_id"
+  item_col: "click_bool"
+  label_col: "click_bool"
+  booking_col: "booking_bool"
+
+  query_features:
+    continuous: 
+      - srch_length_of_stay
+      - srch_booking_window
+      - srch_adults_count
+      - srch_children_count
+      - srch_room_count
+
+    categorical:
+      site_id:
+        vocab_size: 50
+        embed_dim: 8
+      visitor_location_country_id: 
+        vocab_size: 220
+        embed_dim: 16
+
+  item_features: 
+    continuous: 
+      - prop_location_score2
+      - prop_location_score1
+      - prop_starrating
+      - prop_review_score
+      - prop_log_historical_price
+    
+    categorical:
+      prop_country_id:
+        vocab_size: 220
+        embed_dim: 16
+
+model: 
+  tower_dims: [128, 64]
+  embedding_dim: 64
+  dropout: 0.1
+
+training:
+  batch_size: 2048
+  epochs: 30
+  learning_rate: 0.001
+  seed: 42
+
+eval:
+  k_values: [5, 10, 20]
+
+output_dir: "runs/twotower_v1"

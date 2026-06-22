@@ -1,0 +1,57 @@
+data:
+  booking_col: booking_bool
+  feature_cols:
+    interaction_level:
+    - price_usd
+    - promotion_flag
+    item_level:
+    - prop_country_id
+    - prop_starrating
+    - prop_review_score
+    - prop_brand_bool
+    - prop_location_score1
+    - prop_location_score2
+    - prop_log_historical_price
+    query_level:
+    - site_id
+    - visitor_location_country_id
+    - srch_length_of_stay
+    - srch_booking_window
+    - srch_adults_count
+    - srch_children_count
+    - srch_room_count
+  group_col: srch_id
+  label_col: click_bool
+  non_display_positions:
+  - 5
+  - 11
+  - 17
+  - 23
+  - 37
+  - 38
+  - 39
+  - 40
+  position_col: position
+  processed_dir: data/processed/v1
+eval:
+  k_values:
+  - 1
+  - 5
+  - 10
+lgbm:
+  early_stopping_rounds: 30
+  label_gain:
+  - 0
+  - 1
+  - 5
+  learning_rate: 0.05
+  metric: ndcg
+  n_estimators: 500
+  ndcg_eval_at:
+  - 1
+  - 5
+  - 10
+  num_leaves: 127
+  objective: lambdarank
+  seed: 123
+output_dir: runs/lgbm_sweep/num_leaves127_learning_rate0.05_seed123
