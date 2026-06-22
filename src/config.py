@@ -43,3 +43,75 @@ class PipelineConfig:
             split=SplitConfig(**raw["split"]),
             output_dir=raw["output_dir"],
         )
+    
+@dataclass
+class LGBMHyperparams:
+    objective: str
+    metric: str
+    ndcg_eval_at: list[int]
+    num_leaves: int
+    learning_rate: float
+    n_estimators: int
+    early_stopping_rounds: int
+    label_gain: list[float]
+    seed: int
+
+@dataclass
+class EvalConfig:
+    k_values: list[int]
+
+@dataclass
+class LGBMRunConfig:
+    data: dict
+    lgbm: LGBMHyperparams
+    eval: EvalConfig
+    output_dir: str
+
+    @staticmethod
+    def from_yaml(path: str) -> "LGBMRunConfig":
+        with open(path) as f:
+            raw = yaml.safe_load(f)
+        return LGBMRunConfig(
+            data=raw["data"],
+            lgbm=LGBMHyperparams(**raw["lgbm"]),
+            eval=EvalConfig(**raw["eval"]),
+            output_dir=raw["output_dir"]
+        )
+    
+@dataclass
+class TowerFeatureConfig: 
+    continuous: list[str]
+    categorical: dict
+
+@dataclass
+class TwoTowerModelConfig:
+    tower_dims: list[int]
+    embedding_dim: int
+    dropout: float
+
+@dataclass
+class TwoTowerTrainingConfig:
+    batch_size: int
+    epochs: int
+    learning_rate: float
+    seed: int
+
+@dataclass
+class TwoTowerRunConfig:
+    data: dict
+    model: TwoTowerModelConfig
+    training: TwoTowerTrainingConfig
+    eval: EvalConfig
+    output_dir: str
+
+    @staticmethod
+    def from_yaml(path:str) -> "TwoTowerRunConfig":
+        with open(path) as f:
+            raw = yaml.safe_load(f)
+        return TwoTowerRunConfig(
+            data = raw["data"],
+            model = TwoTowerModelConfig(**raw["model"]),
+            training = TwoTowerTrainingConfig(**raw["training"]),
+            eval = EvalConfig(**raw["eval"]),
+            output_dir = raw["output_dir"]
+        )

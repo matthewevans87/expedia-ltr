@@ -1,0 +1,43 @@
+data:
+  processed_dir: "data/processed/v1"
+  group_col: "srch_id"
+  label_col: "click_bool"
+  booking_col: "booking_bool"
+  # ALL features go to the ranker — including cross-features the two-tower couldn't use
+  feature_cols:
+    query_level:
+      - "site_id"
+      - "visitor_location_country_id"
+      - "srch_length_of_stay"
+      - "srch_booking_window"
+      - "srch_adults_count"
+      - "srch_children_count"
+      - "srch_room_count"
+    item_level:
+      - "prop_country_id"
+      - "prop_starrating"
+      - "prop_review_score"
+      - "prop_brand_bool"
+      - "prop_location_score1"
+      - "prop_location_score2"
+      - "prop_log_historical_price"
+    interaction_level:
+      - "price_usd"
+      - "promotion_flag"
+
+model:
+  hidden_dims: [128, 64, 32]
+  dropout: 0.1
+  use_batch_norm: false
+
+training:
+  batch_size: 64          # number of *groups* per batch (not rows)
+  list_size: 25           # pad/truncate each group to this length
+  epochs: 20
+  learning_rate: 0.001
+  seed: 42
+
+eval:
+  k_values: [1, 5, 10]
+
+output_dir: "runs/ranker_v1"
