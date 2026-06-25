@@ -24,7 +24,7 @@ The dataset, a collection of (user query, hotel property, query+property interac
 - The data exhibits an exponential click-through rate (CTR) decay. 
 - Positions 5, 11, 17, and 23 (spaced every 6 positions) break the trend and are possibly "special" search result positions (e.g., advertisements). 
 
-![CTR by position](./ctr_by_position.png.png)
+![CTR by position](./ctr_by_position.png)
 
 ![CTR decay](./count_of_click_bool_by_position.png)
 
