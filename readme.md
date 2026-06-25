@@ -39,6 +39,9 @@ pip install -e .
 
 ## Usage
 
+**0. Obtain data**
+Obtain the [Personalize Expedia Hotel Searches - ICDM 2013](https://www.kaggle.com/c/expedia-personalized-sort) dataset, and stage it at `data/raw/train.csv`
+
 **1. Process data** (train/val/test split):
 ```bash
 python -m expedia_ltr.pipeline --config configs/data_v1.yaml
