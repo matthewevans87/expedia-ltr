@@ -8,9 +8,9 @@ import numpy as np
 import pandas as pd
 import lightgbm as lgb
 
-from config import LGBMRunConfig
-from features import make_label, get_feature_matrix, get_group_sizes
-from metrics import evaluate_groups
+from .config import LGBMRunConfig
+from .features import make_label, get_feature_matrix, get_group_sizes
+from .metrics import evaluate_groups
 
 def load_split(processed_dir: str, split: str) -> pd.DataFrame:
     return pd.read_parquet(f"{processed_dir}/{split}.parquet")

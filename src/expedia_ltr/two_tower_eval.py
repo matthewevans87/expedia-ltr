@@ -2,8 +2,8 @@
 import json, yaml
 import pandas as pd
 import tensorflow as tf
-from tf_data import fill_missing
-from two_tower_train import retrieval_recall_at_k  # after patching
+from .tf_data import fill_missing
+from .two_tower_train import retrieval_recall_at_k  # after patching
 
 with open("configs/twotower_v1.yaml") as f:
     cfg = yaml.safe_load(f)

@@ -4,8 +4,8 @@ import json
 import os
 import copy
 import yaml
-from lgbm_train import train
-from config import LGBMRunConfig
+from .lgbm_train import train
+from .config import LGBMRunConfig
 
 SWEEP = {
     "num_leaves": [31, 63, 127],

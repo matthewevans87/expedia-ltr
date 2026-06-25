@@ -2,7 +2,7 @@
 import os
 import pandas as pd
 import numpy as np
-from config import PipelineConfig
+from .config import PipelineConfig
 
 def grouped_split(df: pd.DataFrame, group_col: str, val_frac: float, test_frac: float, seed: int):
     rng = np.random.default_rng(seed)

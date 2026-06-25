@@ -150,17 +150,17 @@ def make_ranker_dataset(df: pd.DataFrame, cfg: dict, batch_size: int, list_size:
 # print("Label sample:", batch["label"][:8].numpy())
 # # Should see 0s, 1s, and occasional 5s
 
-import pandas as pd, yaml, numpy as np
-import tensorflow as tf
-from tf_data import make_ranker_dataset
+# import pandas as pd, yaml, numpy as np
+# import tensorflow as tf
+# from .tf_data import make_ranker_dataset
 
-with open("configs/ranker_v1.yaml") as f:
-    cfg = yaml.safe_load(f)
+# with open("configs/ranker_v1.yaml") as f:
+#     cfg = yaml.safe_load(f)
 
-df = pd.read_parquet("data/processed/v1/train.parquet").head(50_000)
-ds = make_ranker_dataset(df, cfg["data"], batch_size=64, list_size=25)
-feats, labels = next(iter(ds))
-print("Features shape:", feats.shape)   # expect (64, 25, 16)
-print("Labels shape:",   labels.shape)  # expect (64, 25)
-print("Label sample (first query):", labels[0].numpy())
-# Should see mix of 0s, some 1s, occasional 5s, and -1s (padding)
+# df = pd.read_parquet("data/processed/v1/train.parquet").head(50_000)
+# ds = make_ranker_dataset(df, cfg["data"], batch_size=64, list_size=25)
+# feats, labels = next(iter(ds))
+# print("Features shape:", feats.shape)   # expect (64, 25, 16)
+# print("Labels shape:",   labels.shape)  # expect (64, 25)
+# print("Label sample (first query):", labels[0].numpy())
+# # Should see mix of 0s, some 1s, occasional 5s, and -1s (padding)

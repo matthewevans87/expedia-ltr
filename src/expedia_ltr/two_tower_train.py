@@ -14,10 +14,10 @@ import pandas as pd
 import tensorflow as tf
 import yaml
 
-from config import TwoTowerRunConfig
-from tf_data import make_twotower_dataset_fast, fill_missing
-from two_tower import TwoTowerModel, build_tower
-from metrics import recall_at_k
+from .config import TwoTowerRunConfig
+from .tf_data import make_twotower_dataset_fast, fill_missing
+from .two_tower import TwoTowerModel, build_tower
+from .metrics import recall_at_k
 
 def build_item_dataset(df: pd.DataFrame, cfg: dict,
                         batch_size: int = 512) -> tf.data.Dataset:
@@ -118,8 +118,11 @@ def train(config_path: str):
         print(f"  {k}: {v:.4f}")
 
     metrics["train_time_s"] = round(elapsed, 1)
+    metrics["loss_curve"] = [float(v) for v in history.history["loss"]]
     with open(f"{cfg.output_dir}/metrics.json", "w") as f:
         json.dump(metrics, f, indent=2)
+
+
 
     query_tower.save(f"{cfg.output_dir}/query_tower")
     item_tower.save(f"{cfg.output_dir}/item_tower")

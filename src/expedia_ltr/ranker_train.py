@@ -5,9 +5,9 @@ import pandas as pd
 import tensorflow as tf
 import yaml
 
-from tf_data import make_ranker_dataset
-from ranker import build_ranker
-from metrics import evaluate_groups
+from .tf_data import make_ranker_dataset
+from .ranker import build_ranker
+from .metrics import evaluate_groups
 
 
 def train(config_path: str):
@@ -139,6 +139,8 @@ def train(config_path: str):
         all_metrics[split_name] = metrics
 
     all_metrics["train_time_s"] = round(elapsed, 1)
+    all_metrics["history"] = {k: [float(v) for v in vals]
+                               for k, vals in history.history.items()}
     with open(f"{cfg['output_dir']}/metrics.json", "w") as f:
         json.dump(all_metrics, f, indent=2)
     print(f"\nSaved to {cfg['output_dir']}/")

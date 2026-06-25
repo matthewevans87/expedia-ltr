@@ -2,4 +2,4 @@
 docs
 *.egg-info
 data
-__pycache__
+**/__pycache__/
