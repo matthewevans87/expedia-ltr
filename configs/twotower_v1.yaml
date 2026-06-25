@@ -36,7 +36,6 @@ data:
 
 model: 
   tower_dims: [128, 64]
-  embedding_dim: 64
   dropout: 0.1
 
 training:

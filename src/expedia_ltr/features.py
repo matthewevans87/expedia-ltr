@@ -7,7 +7,7 @@ def make_label(df: pd.DataFrame, click_col: str = "click_bool", booking_col: str
         Graded Relevance: 
         0 = no interaction
         1 = click
-        2 = booking
+        2 = booking (index used by LightGBM label_gain: [0, 1, 5] to apply a gain of 5)
     """
     label = df[click_col].astype(int).copy()
     # boost bookings to 5

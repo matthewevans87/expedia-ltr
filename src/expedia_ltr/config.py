@@ -86,7 +86,6 @@ class TowerFeatureConfig:
 @dataclass
 class TwoTowerModelConfig:
     tower_dims: list[int]
-    embedding_dim: int
     dropout: float
 
 @dataclass
